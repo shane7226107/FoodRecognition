@@ -1,0 +1,19 @@
+1.把training data放進 "trainingImages"資料夾(限jpg檔)
+
+2.編輯trainingImages/my_rename.m。把name部分改成"該食物類別_%3d.jpg" EX:'salad_%3d.jpg'
+
+3.執行my_rename.m
+
+4.執行sift/sift_compile
+
+5.執行descriptor_extractor.m，程式自動把trainingImages中的圖片descriptor存入extractedDescriptors資料夾中
+
+6.執行dictionary_builder ，把extractedDescriptors資料夾中所有圖片的descriptor合併，並送給sparse_coding建dictionary
+
+
+
+------------------------以下未完成
+
+7.l1ls_featuresign.m應該是用來對一張圖片用已知dictionary做coding的...大家研究一下
+
+

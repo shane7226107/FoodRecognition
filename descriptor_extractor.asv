@@ -1,0 +1,28 @@
+%%
+function descriptor_extractor
+
+%Loading images
+files = dir('trainingImages\*.jpg');
+addpath triainingImages;
+num_files = numel(files);
+images = cell(1, num_files)
+for k = 1:num_files
+    images{k} = imread(files(k).name);
+    inputImage = double(images{k})/255; 
+    inputImage_gray = rgb2gray(inputImage) ; 
+    
+    %SIFT    
+    [SIFT_location,SIFT_descriptor] = mysift(inputImage_gray);
+    
+    %LBP
+    LBP_descriptor = LBP(inputImage_gray , SIFT_location);
+    
+    %Color
+    Color_descriptor = color(inputImage , SIFT_location);
+    
+    filename = files(k).name;
+    filename =
+
+end
+
+
