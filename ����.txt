@@ -1,19 +1,21 @@
-1.§âtraining data©ñ¶i "trainingImages"¸ê®Æ§¨(­­jpgÀÉ)
+1.ï¿½ï¿½training dataï¿½ï¿½ï¿½i "trainingImages"ï¿½ï¿½ï¿½Æ§ï¿½(ï¿½ï¿½jpgï¿½ï¿½)
 
-2.½s¿ètrainingImages/my_rename.m¡C§âname³¡¤À§ï¦¨"¸Ó­¹ª«Ãþ§O_%3d.jpg" EX:'salad_%3d.jpg'
+2.ï¿½sï¿½ï¿½trainingImages/my_rename.mï¿½Cï¿½ï¿½nameï¿½ï¿½ï¿½ï¿½ï¿½ä»¤"ï¿½Ó­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½O_%3d.jpg" EX:'salad_%3d.jpg'
 
-3.°õ¦æmy_rename.m
+3.ï¿½ï¿½ï¿½ï¿½my_rename.m
 
-4.°õ¦æsift/sift_compile
+4.ï¿½ï¿½ï¿½ï¿½sift/sift_compile
 
-5.°õ¦ædescriptor_extractor.m¡Aµ{¦¡¦Û°Ê§âtrainingImages¤¤ªº¹Ï¤ùdescriptor¦s¤JextractedDescriptors¸ê®Æ§¨¤¤
+5.ï¿½ï¿½ï¿½ï¿½descriptor_extractor.mï¿½Aï¿½{ï¿½ï¿½ï¿½Û°Ê§ï¿½trainingImagesï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½descriptorï¿½sï¿½JextractedDescriptorsï¿½ï¿½ï¿½Æ§ï¿½ï¿½ï¿½
 
-6.°õ¦ædictionary_builder ¡A§âextractedDescriptors¸ê®Æ§¨¤¤©Ò¦³¹Ï¤ùªºdescriptor¦X¨Ö¡A¨Ã°eµ¹sparse_coding«Ødictionary
+6.ï¿½ï¿½ï¿½ï¿½dictionary_builder ï¿½Aï¿½ï¿½extractedDescriptorsï¿½ï¿½ï¿½Æ§ï¿½ï¿½ï¿½ï¿½Ò¦ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½descriptorï¿½Xï¿½Ö¡Aï¿½Ã°eï¿½ï¿½sparse_codingï¿½ï¿½dictionary
 
 
 
-------------------------¥H¤U¥¼§¹¦¨
+------------------------ï¿½Hï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-7.l1ls_featuresign.mÀ³¸Ó¬O¥Î¨Ó¹ï¤@±i¹Ï¤ù¥Î¤wª¾dictionary°µcodingªº...¤j®a¬ã¨s¤@¤U
+7.l1ls_featuresign.mï¿½ï¿½ï¿½Ó¬Oï¿½Î¨Ó¹ï¿½ï¿½@ï¿½iï¿½Ï¤ï¿½ï¿½Î¤wï¿½ï¿½dictionaryï¿½ï¿½codingï¿½ï¿½...ï¿½jï¿½aï¿½ï¿½ï¿½sï¿½@ï¿½U
+
+8. test
 
 
