@@ -7,7 +7,7 @@ if ~exist('opt_choice', 'var')
 end
 
 % natural image data
-load image_set_descriptor.mat;
+load ../image_set_descriptor.mat;
 X = image_set_descriptor;
 
 % sparse coding parameters
@@ -24,11 +24,11 @@ elseif opt_choice==2
 end
 
 Binit = [];
-fname_save = sprintf('../results/sc_%s_b%d_beta%g_%s', sparsity_func, num_bases, beta, datestr(now, 30));	
+fname_save = sprintf('../sc_%s_b%d_beta%g_%s', sparsity_func, num_bases, beta, datestr(now, 30));	
 
 % run fast sparse coding
 [BASIS S stat] = sparse_coding(X, num_bases, beta, sparsity_func, epsilon, num_iters, batch_size, fname_save, Binit);
 
 %save the trained basis
-save('dictionary_basis.mat' , 'BASIS');
+save('../dictionary_basis.mat' , 'BASIS');
 
