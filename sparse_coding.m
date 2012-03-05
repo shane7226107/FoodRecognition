@@ -166,9 +166,9 @@ while t < pars.num_trials
             S_all(:,batch_idx)= S;
         else
             if strcmp(pars.sparsity_func, 'L1') || strcmp(pars.sparsity_func, 'LARS') || strcmp(pars.sparsity_func, 'FS')
-                tic
+                tic;
                 S= l1ls_featuresign(B, Xb, pars.beta/pars.sigma*pars.noise_var, S_all(:,batch_idx));
-                FS_time = toc
+                FS_time = toc;
             else
                 S= cgf_fitS_sc2(B, Xb, pars.sparsity_func, pars.noise_var, pars.beta, pars.epsilon, pars.sigma, pars.tol, false, false, false, S_all(:,batch_idx));
             end
@@ -178,7 +178,7 @@ while t < pars.num_trials
         
         if strcmp(pars.sparsity_func, 'L1') || strcmp(pars.sparsity_func, 'LARS') || strcmp(pars.sparsity_func, 'FS')
             sparsity_S = sum(S(:)~=0)/length(S(:));
-            fprintf('sparsity_S = %g\n', sparsity_S);
+            %fprintf('sparsity_S = %g\n', sparsity_S);
         end
         
         % get objective
@@ -223,6 +223,7 @@ while t < pars.num_trials
         save(experiment.matfname, 't', 'pars', 'B', 'stat');
         fprintf('saved as %s\n', experiment.matfname);
     end
+    fprintf('%d iterations finished! \n',t);
 end
 
 return
