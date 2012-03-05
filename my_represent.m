@@ -5,6 +5,7 @@ function [ output_args ] = my_represent( input_args )
 load ../dictionary basis.mat;
 load ../extractedDescriptors/test.mat;
 
+
 Xout = l1ls_featuresign (dictionary_basis, test, 1);
 
 end
