@@ -129,6 +129,11 @@ end
 
 % optimization loop
 while t < pars.num_trials
+    
+    %printing num of iteration    
+    fprintf('num of iteration(optimazation loop) : %d', t);
+    
+    
     t=t+1;
     start_time= cputime;
     
