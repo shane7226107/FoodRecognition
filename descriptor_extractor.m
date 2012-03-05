@@ -2,7 +2,7 @@
 function descriptor_extractor
 
 %Loading images
-files = dir('trainingImages/*.jpg');
+files = dir('../trainingImages/*.jpg');
 num_files = numel(files);
 images = cell(1, num_files);
 

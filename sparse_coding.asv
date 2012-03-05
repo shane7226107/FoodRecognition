@@ -28,7 +28,7 @@ function [B S stat] = sparse_coding(X_total, num_bases, beta, sparsity_func, eps
 % Shane's note:
 % batch(?!)
 
-
+%----resample?
 if exist('resample_size', 'var') && resample_size
     assert(size(X_total,2) > resample_size);
     X = X_total(:, randsample(size(X_total,2), resample_size));
@@ -36,16 +36,20 @@ else
     X = X_total;
 end
 
+%----parameters
 pars.patch_size = size(X,1);
 pars.num_patches = size(X,2);
 pars.num_bases = num_bases;
 pars.num_trials = num_iters;
 
-if exist('batch_size', 'var') && ~isempty(batch_size)
-    pars.batch_size = batch_size; 
-else
-    pars.batch_size = size(X,2)/10;
-end
+%----save evey
+pars.save_every = 5;
+
+% if exist('batch_size', 'var') && ~isempty(batch_size)
+%     pars.batch_size = batch_size; 
+% else
+     pars.batch_size = floor(size(X,2)/10);
+% end
 
 pars.sparsity_func = sparsity_func;
 pars.beta = beta;
@@ -54,6 +58,8 @@ pars.epsilon = epsilon;
 pars.noise_var = 1;
 pars.sigma = 1;
 pars.VAR_basis = 1;
+
+
 
 if ~isfield(pars,'display_images')	pars.display_images = false; end; %true;	
 if ~isfield(pars,'display_every')	pars.display_every = 1;	end;
@@ -78,7 +84,7 @@ else
     pars.reuse_coeff = true;
 end;
 
-pars
+
 
 % set path
 addpath sc2
@@ -97,7 +103,7 @@ winsize=sqrt(L);
 
 % initialize display
 if pars.display_images
-    figure(1), display_network_nonsquare2(B);
+    %figure(1), display_network_nonsquare2(B);
     % figure(1), colormap(gray);
 end
 
@@ -153,10 +159,8 @@ while t < pars.num_trials
         if t==1 || ~pars.reuse_coeff
             if strcmp(pars.sparsity_func, 'L1') || strcmp(pars.sparsity_func, 'LARS') || strcmp(pars.sparsity_func, 'FS')
                 S= l1ls_featuresign(B, Xb, pars.beta/pars.sigma*pars.noise_var);
-                S
             else
                 S= cgf_fitS_sc2(B, Xb, pars.sparsity_func, pars.noise_var, pars.beta, pars.epsilon, pars.sigma, pars.tol, false, false, false);
-            
             end
             S(find(isnan(S)))=0;
             S_all(:,batch_idx)= S;
@@ -164,7 +168,7 @@ while t < pars.num_trials
             if strcmp(pars.sparsity_func, 'L1') || strcmp(pars.sparsity_func, 'LARS') || strcmp(pars.sparsity_func, 'FS')
                 tic
                 S= l1ls_featuresign(B, Xb, pars.beta/pars.sigma*pars.noise_var, S_all(:,batch_idx));
-                FS_time = toc
+                FS_time = toc;
             else
                 S= cgf_fitS_sc2(B, Xb, pars.sparsity_func, pars.noise_var, pars.beta, pars.epsilon, pars.sigma, pars.tol, false, false, false, S_all(:,batch_idx));
             end
@@ -199,7 +203,7 @@ while t < pars.num_trials
     
     % display
     if (pars.display_images && mod(t, pars.display_every)==0) || mod(t,pars.save_every)==0 || t==pars.num_trials
-        display_figures(pars, stat, B, S, t);
+        %display_figures(pars, stat, B, S, t);
     end
     
     fprintf(['epoch= %d, fobj= %f, fresidue= %f, fsparsity= %f, took %0.2f ' ...
