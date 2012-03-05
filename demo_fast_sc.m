@@ -9,9 +9,9 @@ end
 % natural image data
 load ../image_set_descriptor.mat;
 X = image_set_descriptor;
-
+X = X(1:128,:);
 % sparse coding parameters
-num_bases = 1024;
+num_bases = 128;
 beta = 0.4;
 batch_size = 1000;
 num_iters = 100;

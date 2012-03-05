@@ -36,7 +36,7 @@ AtY = A'*Y;
 rankA = min(size(A,1)-10, size(A,2)-10);
 
 for i=1:size(Y,2)
-    if mod(i, 100)==0, fprintf('.'); end %fprintf(1, 'l1ls_featuresign: %d/%d\r', i, size(Y,2)); end
+%     if mod(i, 100)==0, fprintf('.'); end %fprintf(1, 'l1ls_featuresign: %d/%d\r', i, size(Y,2)); end
     
     if use_Xinit
         idx1 = find(Xinit(:,i)~=0);
@@ -48,7 +48,7 @@ for i=1:size(Y,2)
         [Xout(:,i), fobj]= ls_featuresign_sub (A, Y(:,i), AtA, AtY(:, i), gamma);
     end
 end
-fprintf(1, '\n');
+% fprintf(1, '\n');
 
 warning('on', 'MATLAB:divideByZero');
 

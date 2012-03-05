@@ -153,8 +153,8 @@ while t < pars.num_trials
     
     for batch=1:(size(X,2)/pars.batch_size),
         % Show progress in epoch
-        if 1, fprintf('.'); end
-        if (mod(batch,20)==0) fprintf('\n'); end
+%         if 1, fprintf('.'); end
+%         if (mod(batch,20)==0) fprintf('\n'); end
         
         % This is data to use for this step
         batch_idx = indperm((1:pars.batch_size)+pars.batch_size*(batch-1));
