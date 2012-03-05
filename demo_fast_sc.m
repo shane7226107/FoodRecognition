@@ -30,6 +30,7 @@ fname_save = sprintf('../sc_%s_b%d_beta%g_%s', sparsity_func, num_bases, beta, d
 [BASIS S stat] = sparse_coding(X, num_bases, beta, sparsity_func, epsilon, num_iters, batch_size, fname_save, Binit);
 
 %save the trained basis
+
 fname_save2 = sprintf('../dictionary_basis_%d.mat', num_bases);
 save(fname_save2 , num_bases , 'BASIS');
 
